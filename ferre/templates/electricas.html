@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="container">
+	<br>
+	<center><h1>Herramientas Electricas</h1><hr></center>
+	<div class="row">
+	<img src="{% static 'files/bannerEle.jpg' %}" height="300px"
+	    	width="930px">
+	</div><hr>
+
+	<form class="form-control">
+		
+		<div class="row">
+			
+				{% for electricas in docs_list %}
+				<div class=col-md-4>
+                    <br>
+                    <div class="card">
+                    	<div class="card-body">
+
+					        <strong><p>{{ electricas.nombre }}</p></strong><hr>
+
+					        <center><img src="{{ electricas.imagen.url }}" height="180" width="180"></center><br><br>
+
+					        <strong>Marca: </strong><p>{{ electricas.marca }}</p>
+
+					        <strong>Modelo: </strong><p>{{ electricas.modelo }}</p>
+
+					        <strong>Precio: </strong><p>{{ electricas.precio }}</p>
+
+					        <strong>Fecha: </strong><p>{{ electricas.fecha }}</p>
+					        
+		                    <br>   
+
+		                    {% if perms.ferre.change_electricas %}
+					        <p><a  class= "btn btn-primary btn-sm" href="{% url 'modificarEle' electricas.id  %}">Modificar</a></p>
+					        {% endif %}
+
+					        {% if perms.ferre.delete_electricas %}
+					        <p><a  class= "btn btn-danger btn-sm" href="{% url 'eliminarEle' electricas.id  %}">Eliminar</a></p>
+					        {% endif %}
+
+                    	</div>
+                    </div>
+				</div>
+	    		{% endfor %}
+
+		</div><br><br>
+
+		{% if perms.ferre.add_electricas %}
+			<p><a  class= "btn btn-primary btn-sm" href="{% url 'agregarEle' %}">Agregar</a></p>
+		{% endif %}
+		
+	</form>
+	<br><br><br>
+
+</div>
+
+{% endblock content %}

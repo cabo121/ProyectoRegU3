@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% load crispy_forms_tags %}
+	
+			<div class="row">
+				<div class='col-12 col-md-6 offset-md-3'>
+					<br>
+					<center><h1>Editar</h1></center>
+					<br>
+					
+					<div class="card">
+						<div class="card-body">
+
+						<form method="post" enctype="multipart/form-data">
+							{% csrf_token %}
+							{{ form | crispy }}
+
+							<div class="d=flex justify-content-end">
+
+								<br>
+								<input type="reset" value="cancelar" class="btn btn-secondary">
+								&nbsp;
+								<input type="submit" value="Editar" class="btn btn-primary">
+								
+							</div>
+
+						</form>
+
+						</div>
+					</div>
+
+				</div>	
+			</div>
+			<br><br>	
+
+{% endblock content %}

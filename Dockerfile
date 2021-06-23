@@ -1,0 +1,18 @@
+# VERSION DE PYTHON
+FROM python:3.9
+
+# VARIABLES DE ENTORNO
+ENV PYTHONDONTWRITEBYTECODE 1
+ENV PYTHONUNBUFFERED 1
+
+# CARPETA CON LA QUE TRABAJAREMOS
+WORKDIR /docker
+
+# INSTALE LAS DEPENDENCIAS
+COPY Pipfile Pipfile.lock /docker/
+RUN pip3 install pipenv && pipenv install --system
+
+# COPIA EL PROYECTO
+COPY . /docker/
+
+

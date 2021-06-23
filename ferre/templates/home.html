@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="jumbotron p-4">
+    
+    <br><center><h1>Bienvenidos a nuestra tienda!!!</h1></center>
+    
+    <hr>
+
+    <div class="row">
+    	<img src="{% static 'files/banner.png' %}" height="430px"
+    	width="900px">
+    </div>
+    <hr>
+    <br>
+
+	<div>
+		<h2>Las mejores marcas</h2><hr><br>
+
+		<div class = "row">
+			<div class = "col-md-3">
+				<img src="{% static 'files/bosch-tools-navyblue.jpg' %}" height="250px" width="250px">
+			</div>
+
+			<div class = "col-md-3">
+				<img src="{% static 'files/5qLmVQm.jpg' %}" height="250px" width="250px">
+			</div>
+
+			<div class = "col-md-3">
+				<img src="{% static 'files/Logo-urrea.jpg' %}" height="250px" width="250px">
+			</div>
+
+			<div class = "col-md-3">
+				<img src="{% static 'files/stanley.png' %}" height="250px" width="250px">
+			</div>
+		</div><hr>
+
+
+	</div><br>
+
+
+
+</div>
+
+{% endblock content %}

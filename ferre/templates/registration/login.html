@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="p-5" style="text-align: center;">
+	<form method="POST"> {% csrf_token %}
+		<h1>Inicie Sesion</h1><br>
+	  		{{ form.as_p }}
+	  	<button type="submit" class="btn btn-primary">Iniciar sesion</button><br><br>
+	  	
+	  	<a class="nav-link active" href="/password_reset">Olvido su contrasena?</a>
+
+	</form>
+</div>
+
+{% endblock content %}

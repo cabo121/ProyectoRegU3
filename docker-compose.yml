@@ -1,0 +1,19 @@
+services:
+  web:
+    build: .
+    command: python /docker/manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/docker
+    ports:
+      - 8000:8000
+    depends_on:
+      - db
+  db:
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "db"
+      POSTGRES_HOST_AUTH_METHOD: "trust"
+volumes:
+  postgres_data:
